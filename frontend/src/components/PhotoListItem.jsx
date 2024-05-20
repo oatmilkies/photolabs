@@ -5,7 +5,8 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
   return (
-    <li className="photo-list__item" key={props.listItem.id}>
+    <li className="photo-list">
+    <div className="photo-list__item" key={props.listItem.id}>
       <img className="photo-list__image" src={props.listItem.imageSource}></img>
 
       <div className="photo-list__user-details">
@@ -18,6 +19,7 @@ const PhotoListItem = (props) => {
           </div>
         </div>
       </div>
+    </div>
     </li>
   );
 };
