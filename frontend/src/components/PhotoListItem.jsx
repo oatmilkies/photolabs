@@ -9,10 +9,12 @@ const PhotoListItem = (props) => {
       <img className="photo-list__image" src={props.listItem.imageSource}></img>
       <img className="photo-list__user-profile" src={props.listItem.profile}></img>
       <div className="photo-list__user-details">
-        <span className="photo-list__user-info">{props.listItem.username}</span>
-        <div className="photo-list__user-location">
-          <span>{props.listItem.location.city}</span>
-          <span>{props.listItem.location.country}</span>
+        <div className="photo-list__user-info">
+          <span>{props.listItem.username}</span>
+          <div className="photo-list__user-location">
+            <span>{props.listItem.location.city}</span>
+            <span>{props.listItem.location.country}</span>
+          </div>
         </div>
       </div>
     </li>
