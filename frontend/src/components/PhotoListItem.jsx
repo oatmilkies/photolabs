@@ -10,13 +10,13 @@ const PhotoListItem = (props) => {
     <li className="photo-list"  key={props.listItem.id}>
     <div className="photo-list__item">
       <PhotoFavButton />
-      <img className="photo-list__image" src={props.listItem.imageSource}></img>
+      <img className="photo-list__image" src={props.listItem.urls.regular}></img>
       <div className="photo-list__user-details">
-      <img className="photo-list__user-profile" src={props.listItem.profile}></img>
+      <img className="photo-list__user-profile" src={props.listItem.user.profile}></img>
         <div className="photo-list__user-info">
-          <span>{props.listItem.username}</span>
+          <span>{props.listItem.user.name}</span>
           <div className="photo-list__user-location">
-            <span>{props.listItem.location.city}</span>
+            <span>{props.listItem.location.city} </span>
             <span>{props.listItem.location.country}</span>
           </div>
         </div>
