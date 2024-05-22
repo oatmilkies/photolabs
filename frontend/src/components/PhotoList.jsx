@@ -6,7 +6,7 @@ import PhotoListItem from "./PhotoListItem";
 //Display a grid of photos
 const PhotoList = (props) => {
   const listItem = props.photos.map((item) => 
-  <PhotoListItem key={item.id} listItem={item} />)
+  <PhotoListItem key={item.id} listItem={item} liked={liked} switchLiked={switchLiked} />)
 
   return (
     <ul className="photo-list">
