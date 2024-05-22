@@ -8,8 +8,8 @@ function PhotoFavButton(props) {
   // const handleClick = () => {
   //   setLike(prevLiked => !prevLiked);
   // };
-  const { liked, setLike } = props;
-  const handleClick = () => props.setLike();
+  const { liked, switchLiked } = props;
+  const handleClick = () => switchLiked();
 
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>

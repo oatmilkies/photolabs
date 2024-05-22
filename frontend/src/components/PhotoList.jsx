@@ -4,6 +4,7 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 //Display a grid of photos
+const { liked, switchLiked } = props;
 const PhotoList = (props) => {
   const listItem = props.photos.map((item) => 
   <PhotoListItem key={item.id} listItem={item} liked={liked} switchLiked={switchLiked} />)
