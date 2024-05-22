@@ -10,13 +10,25 @@ const HomeRoute = (props) => {
     setLike(prevLiked => !prevLiked);
   };
 
-  let likedPhotos = [];
-  
+  //Initialize list of liked photos
+  const [likedPhotos, setLikedPhotos] = useState([]);
+
+  //Check if photo is in liked list. Remove if it is, add if it's not
+  const toggleLike = function(photoId) {
+    if (likedPhotos.includes(photoId)) {
+      const updatedLikedPhotos = likedPhotos.filter(id => id !== photoId);
+      setLikedPhotos(updatedLikedPhotos);
+    } else {
+      const updatedLikedPhotos = [...likedPhotos, photoId];
+      setLikedPhotos(updatedLikedPhotos);
+    }
+  };
+
 
   return (
     <div className="home-route">
       <TopNavigation topics={props.topics} />
-      <PhotoList photos={props.photos} liked={liked} switchLiked={switchLiked} />
+      <PhotoList photos={props.photos} likedPhotos={likedPhotos} toggleLike={toggleLike} />
     </div>
   );
 };
