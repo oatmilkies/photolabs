@@ -5,11 +5,6 @@ import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
-  const [liked, setLike] = useState(false);
-  const switchLiked = () => {
-    setLike(prevLiked => !prevLiked);
-  };
-
   //Initialize list of liked photos
   const [likedPhotos, setLikedPhotos] = useState([]);
 
