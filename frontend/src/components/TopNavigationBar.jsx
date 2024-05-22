@@ -4,6 +4,7 @@ import '../styles/TopNavigationBar.scss'
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 
+//Display logo, topic list, and heart icon
 const TopNavigation = (props) => {
   return (
     <div className="top-nav-bar">

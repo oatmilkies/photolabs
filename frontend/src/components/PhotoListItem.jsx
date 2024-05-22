@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-
+//Display a single photo and user details
 const PhotoListItem = (props) => {
   const { liked, toggleLike } = props;
   
