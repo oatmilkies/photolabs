@@ -11,10 +11,10 @@ const App = () => {
   const [displayModal, setDisplayModal] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState([]);
 
-  const toggleModal = (...photos) => {
+  const toggleModal = (photoID) => {
     setDisplayModal(prevState => !prevState);
 
-    const updatedSelectedPhoto = [...photos];
+    const updatedSelectedPhoto = [...photos, photoID];
     setSelectedPhoto(updatedSelectedPhoto);
   };
 
