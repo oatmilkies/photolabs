@@ -7,17 +7,13 @@ import FavBadge from './FavBadge';
 //Display logo, topic list, and heart icon
 const TopNavigation = (props) => {
   const { likedPhotos } = props;
-  const isFavPhotoExist = function () {
-    if (likedPhotos.length !== 0) {
-      return true;
-    }
-  }
+  const isFavPhotoExist = likedPhotos.length !== 0;
 
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
       <TopicList topics={props.topics}/>
-      <FavBadge isFavPhotoExist={isFavPhotoExist()} selected={isFavPhotoExist()} />
+      <FavBadge isFavPhotoExist={isFavPhotoExist} />
     </div>
   )
 }
