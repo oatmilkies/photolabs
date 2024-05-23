@@ -5,17 +5,13 @@ import PhotoFavButton from "./PhotoFavButton";
 
 //Display a single photo and user details
 const PhotoListItem = (props) => {
-  const { liked, toggleLike } = props;
-
-  const toggleModal = () => {
-    props.setDisplayModal(prevState => !prevState);
-  };
+  const { liked, toggleLike, toggleModal } = props;
   
   return (
     <li className="photo-list"  key={props.listItem.id}>
     <div className="photo-list__item">
       <PhotoFavButton liked={liked} toggleLike={toggleLike}/>
-      <img className="photo-list__image" src={props.listItem.urls.regular} onClick={toggleModal}></img>
+      <img className="photo-list__image" src={props.listItem.urls.regular} onClick={props.toggleModal}></img>
       <div className="photo-list__user-details">
       <img className="photo-list__user-profile" src={props.listItem.user.profile}></img>
         <div className="photo-list__user-info">
