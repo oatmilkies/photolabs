@@ -5,7 +5,7 @@ import PhotoFavButton from "./PhotoFavButton";
 
 //Display a single photo and user details
 const PhotoListItem = (props) => {
-  const { liked, toggleLike, toggleModal } = props;
+  const { liked, toggleLike } = props;
   
   return (
     <li className="photo-list"  key={props.listItem.id}>
