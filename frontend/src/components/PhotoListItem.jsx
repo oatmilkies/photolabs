@@ -8,7 +8,7 @@ const PhotoListItem = (props) => {
   const { liked, toggleLike } = props;
 
   const toggleModal = () => {
-    props.setOpenModal(prevState => !prevState);
+    props.setDisplayModal(prevState => !prevState);
   };
   
   return (

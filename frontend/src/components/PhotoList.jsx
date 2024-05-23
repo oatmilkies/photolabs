@@ -8,7 +8,7 @@ const PhotoList = (props) => {
   const { likedPhotos, toggleLike } = props;
 
   const listItem = props.photos.map((item) => 
-  <PhotoListItem key={item.id} listItem={item} liked={likedPhotos.includes(item.id)} toggleLike={() => toggleLike(item.id)} openModal={props.openModal} setOpenModal={props.setOpenModal}/>)
+  <PhotoListItem key={item.id} listItem={item} liked={likedPhotos.includes(item.id)} toggleLike={() => toggleLike(item.id)} displayModal={props.displayModal} setDisplayModal={props.setDisplayModal}/>)
 
   return (
     <ul className="photo-list">
