@@ -2,18 +2,12 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
+import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
-  const {urls, user, location, similar_photos} = props.selectedPhoto.photo;
+  const { urls, user, location, similar_photos } = props.selectedPhoto.photo;
 
-  //Display grid of similar photos
-  const similarPhotos = (photos) => {
-    return Object.values(photos).map((photo) => (
-      <span key={photo.id}>
-        <img className="photo-details-modal__images" src={photo.urls.regular} alt={photo.description} />
-      </span>
-    ));
-  };
+  const similarPhotos = Object.values((similar_photos));
 
   return (
     <div className="photo-details-modal">
@@ -37,8 +31,7 @@ const PhotoDetailsModal = (props) => {
       <div className="photo-details-modal__top-bar">
         <h3>Similar Photos</h3>
       </div>
-      {similarPhotos(similar_photos)}
-
+      <PhotoList photos={similarPhotos} likedPhotos={props.likedPhotos} toggleLike={props.toggleLike} displayModal={props.displayModal} toggleModal={props.toggleModal} selectedPhoto={props.selectedPhoto} />
     </div>
   );
 };
