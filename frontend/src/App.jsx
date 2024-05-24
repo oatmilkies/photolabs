@@ -27,7 +27,7 @@ const App = () => {
 
   //Check if photo is in liked list. Remove if it is, add if it's not
   const [likedPhotos, setLikedPhotos] = useState([]);
-  
+
   const toggleLike = function(photoId) {
     if (likedPhotos.includes(photoId)) {
       const updatedLikedPhotos = likedPhotos.filter(id => id !== photoId);
@@ -42,7 +42,8 @@ const App = () => {
     <div className="App">
       <HomeRoute topics={topics} photos={photos} displayModal={displayModal}  toggleModal={toggleModal} selectedPhoto={selectedPhoto} toggleLike={toggleLike} likedPhotos={likedPhotos} />
 
-      {displayModal && <PhotoDetailsModal displayModal={displayModal} toggleModal={toggleModal} selectedPhoto={selectedPhoto} toggleLike={toggleLike} likedPhotos={likedPhotos} />}
+      {displayModal && 
+      <PhotoDetailsModal displayModal={displayModal} toggleModal={toggleModal} selectedPhoto={selectedPhoto} toggleLike={toggleLike} likedPhotos={likedPhotos} />}
     </div>
 
   );
