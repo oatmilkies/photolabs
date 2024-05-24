@@ -31,7 +31,7 @@ const PhotoDetailsModal = (props) => {
       <div className="photo-details-modal__top-bar">
         <h3>Similar Photos</h3>
       </div>
-      <PhotoList photos={similarPhotos} likedPhotos={props.likedPhotos} toggleLike={props.toggleLike} displayModal={props.displayModal} toggleModal={props.toggleModal} selectedPhoto={props.selectedPhoto} />
+      <PhotoList photos={similarPhotos} likedPhotos={props.likedPhotos} toggleLike={props.toggleLike} selectedPhoto={props.selectedPhoto} />
     </div>
   );
 };
