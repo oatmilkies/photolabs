@@ -4,6 +4,8 @@ import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 
 const PhotoDetailsModal = (props) => {
+  const {urls, user, location, similar_photos} = props.selectedPhoto.photo;
+
   //Display grid of similar photos
   const similarPhotos = (photos) => {
     return Object.values(photos).map((photo) => (
@@ -20,14 +22,14 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
-      <img className="photo-details-modal__image" src={props.selectedPhoto.photo.urls.full}></img>
+      <img className="photo-details-modal__image" src={urls.full}></img>
       <div className="photo-details-modal__header">
-        <img className="photo-details-modal__photographer-profile" src={props.selectedPhoto.photo.user.profile}></img>
+        <img className="photo-details-modal__photographer-profile" src={user.profile}></img>
         <div className="photo-details-modal__photographer-profile">
-          <span>{props.selectedPhoto.photo.user.name}</span>
+          <span>{user.name}</span>
           <div className="photo-details-modal__photographer-location">
-            <span>{props.selectedPhoto.photo.location.city}</span>
-            <span>{props.selectedPhoto.photo.location.country}</span>
+            <span>{location.city}</span>
+            <span>{location.country}</span>
           </div>
         </div>
       </div>
@@ -35,7 +37,7 @@ const PhotoDetailsModal = (props) => {
       <div className="photo-details-modal__top-bar">
         <h3>Similar Photos</h3>
       </div>
-      {similarPhotos(props.selectedPhoto.photo.similar_photos)}
+      {similarPhotos(similar_photos)}
 
     </div>
   );
