@@ -8,14 +8,21 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  //Get data for the selected photo to pass to modal
   const [displayModal, setDisplayModal] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState([]);
+  const [selectedPhoto, setSelectedPhoto] = useState({});
 
   const toggleModal = (photoID) => {
     setDisplayModal(prevState => !prevState);
 
-    const updatedSelectedPhoto = [...photos, photoID];
-    setSelectedPhoto(updatedSelectedPhoto);
+    let updatedSelectedPhoto = {};    
+
+    for (const photo of photos) {
+      if (photo.id === photoID) {
+        updatedSelectedPhoto = {photo}
+        setSelectedPhoto(updatedSelectedPhoto);
+      }
+    }
   };
 
 
