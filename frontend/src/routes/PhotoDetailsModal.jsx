@@ -16,22 +16,26 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
+      <div className="photo-details-modal__fav-button">
       <PhotoFavButton liked={props.likedPhotos.includes(id)} toggleLike={() => props.toggleLike(id)} />
+      </div>
       <img className="photo-details-modal__image" src={urls.full}></img>
+
+
       <div className="photo-details-modal__header">
         <img className="photo-details-modal__photographer-profile" src={user.profile}></img>
-        <div className="photo-details-modal__photographer-profile">
+        <span className="photo-details-modal__photographer-profile">
           <span>{user.name}</span>
           <div className="photo-details-modal__photographer-location">
-            <span>{location.city}</span>
+            <span>{location.city}, </span>
             <span>{location.country}</span>
           </div>
-        </div>
+        </span>
       </div>
 
-      <div className="photo-details-modal__top-bar">
-        <h3>Similar Photos</h3>
-      </div>
+
+      <hr></hr>
+      <h3 className="photo-details-modal__header">Similar Photos</h3>
       <PhotoList photos={similarPhotos} likedPhotos={props.likedPhotos} toggleLike={props.toggleLike} />
 
     </div>
