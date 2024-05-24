@@ -6,8 +6,7 @@ import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  const { urls, user, location, similar_photos } = props.selectedPhoto.photo;
-
+  const { id, urls, user, location, similar_photos } = props.selectedPhoto.photo;
   const similarPhotos = Object.values((similar_photos));
 
   return (
@@ -17,7 +16,7 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
-      <PhotoFavButton liked={props.liked} toggleLike={props.toggleLike} />
+      <PhotoFavButton liked={props.likedPhotos.includes(id)} toggleLike={() => props.toggleLike(id)} />
       <img className="photo-details-modal__image" src={urls.full}></img>
       <div className="photo-details-modal__header">
         <img className="photo-details-modal__photographer-profile" src={user.profile}></img>
@@ -33,7 +32,7 @@ const PhotoDetailsModal = (props) => {
       <div className="photo-details-modal__top-bar">
         <h3>Similar Photos</h3>
       </div>
-      <PhotoList photos={similarPhotos} likedPhotos={props.likedPhotos} toggleLike={props.toggleLike} selectedPhoto={props.selectedPhoto} />
+      <PhotoList photos={similarPhotos} likedPhotos={props.likedPhotos} toggleLike={props.toggleLike} />
 
     </div>
   );
