@@ -67,6 +67,7 @@ const useApplicationData = (photos) => {
   });
 
   const toggleModal = () => {
+    console.log("modal")
     dispatch({ type: 'TOGGLE_MODAL' });
   };
 
@@ -78,9 +79,7 @@ const useApplicationData = (photos) => {
     if (state.likedPhotos.includes(id)) {
       dispatch({ type: 'FAV_PHOTO_REMOVED', payload: { id } });
     } else {
-      console.log("add", id)
       dispatch({ type: 'FAV_PHOTO_ADDED', payload: { id } });
-      console.log(state.likedPhotos)
     }
   };
 

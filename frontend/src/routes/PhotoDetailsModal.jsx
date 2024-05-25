@@ -7,7 +7,7 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
   console.log(props)
-  const { id, urls, user, location, similar_photos } = props.selectedPhoto.photo;
+  const { id, urls, user, location, similar_photos } = props.selectedPhoto;
   const similarPhotos = Object.values((similar_photos));
 
   return (
