@@ -1,24 +1,40 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
+
+// function reducer(state, action) {
+//   const updatedState = { ...state };
+//   const { type, payload } = action;
+
+//   switch (action.type) {
+//     case TOGGLE_MODAL:
+//       return {
+//         ...state,
+//         displayModal: state.displayModal
+//       };
+
+//     default:
+//       throw new Error(
+//         `Tried to reduce with unsupported action type: ${action.type}`
+//       );
+//   }
+// }
 
 const useApplicationData = (photos) => {
   const [displayModal, setDisplayModal] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState({});
   const [likedPhotos, setLikedPhotos] = useState([]);
 
-  //Get data for the selected photo to pass to modal
+  //Open or close the modal
   const toggleModal = () => {
     setDisplayModal(prevState => !prevState);
   };
 
+  //Get data for the selected photo to pass to modal
   const selectPhoto = (photoId) => {
     let updatedSelectedPhoto = {};
 
-    for (const photo of photos) {
-      if (photo.id === photoId) {
-        updatedSelectedPhoto = { photo };
-        setSelectedPhoto(updatedSelectedPhoto);
-      }
-    }
+    const photo = photos.find(({ id }) => id === photoId);
+    updatedSelectedPhoto = { photo };
+    setSelectedPhoto(updatedSelectedPhoto);
   };
 
   //Check if photo is in liked list. Remove if it is, add if it's not
@@ -31,6 +47,13 @@ const useApplicationData = (photos) => {
       setLikedPhotos(updatedLikedPhotos);
     }
   };
+
+  // const [state, dispatch] = useReducer(reducer, {
+  //   displayModal: false,
+  //   selectedPhoto: {},
+  //   likedPhotos: []
+  // });
+
 
   return {
     displayModal,
