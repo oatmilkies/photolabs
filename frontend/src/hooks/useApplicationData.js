@@ -6,13 +6,16 @@ const useApplicationData = (photos) => {
   const [likedPhotos, setLikedPhotos] = useState([]);
 
   //Get data for the selected photo to pass to modal
-  const toggleModal = (photoId) => {
+  const toggleModal = () => {
+    setDisplayModal(prevState => !prevState);
+  };
+
+  const selectPhoto = (photoId) => {
     let updatedSelectedPhoto = {};
-    setDisplayModal(prevState => !prevState);    
 
     for (const photo of photos) {
       if (photo.id === photoId) {
-        updatedSelectedPhoto = {photo}
+        updatedSelectedPhoto = { photo };
         setSelectedPhoto(updatedSelectedPhoto);
       }
     }
@@ -34,8 +37,9 @@ const useApplicationData = (photos) => {
     toggleModal,
     selectedPhoto,
     likedPhotos,
-    toggleLike
-   }
+    toggleLike,
+    selectPhoto
+  };
 };
 
 export default useApplicationData;

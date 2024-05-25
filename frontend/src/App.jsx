@@ -9,13 +9,13 @@ import useApplicationData from 'hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-
   const {
     displayModal,
     toggleModal,
     selectedPhoto,
     likedPhotos,
-    toggleLike
+    toggleLike,
+    selectPhoto
    } = useApplicationData(photos);
 
   return (
@@ -23,7 +23,7 @@ const App = () => {
       <HomeRoute topics={topics} photos={photos} displayModal={displayModal}  toggleModal={toggleModal} selectedPhoto={selectedPhoto} toggleLike={toggleLike} likedPhotos={likedPhotos} />
 
       {displayModal && 
-      <PhotoDetailsModal displayModal={displayModal} toggleModal={toggleModal} selectedPhoto={selectedPhoto} toggleLike={toggleLike} likedPhotos={likedPhotos} />}
+      <PhotoDetailsModal displayModal={displayModal} toggleModal={toggleModal} selectedPhoto={selectedPhoto} toggleLike={toggleLike} likedPhotos={likedPhotos} selectPhoto={selectPhoto} />}
     </div>
 
   );
