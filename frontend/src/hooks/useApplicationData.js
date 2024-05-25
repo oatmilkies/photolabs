@@ -67,7 +67,6 @@ const useApplicationData = (photos) => {
   });
 
   const toggleModal = () => {
-    console.log("modal")
     dispatch({ type: 'TOGGLE_MODAL' });
   };
 
