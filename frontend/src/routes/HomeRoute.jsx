@@ -9,7 +9,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <TopNavigation topics={props.topics} likedPhotos={props.likedPhotos} />
 
-      <PhotoList photos={props.photos} likedPhotos={props.likedPhotos} toggleLike={props.toggleLike} displayModal={props.displayModal} toggleModal={props.toggleModal} selectedPhoto={props.selectedPhoto} />
+      <PhotoList photos={props.photos} likedPhotos={props.likedPhotos} toggleLike={props.toggleLike} displayModal={props.displayModal} toggleModal={props.toggleModal} selectedPhoto={props.selectedPhoto} selectPhoto={props.selectPhoto} />
     </div>
   );
 };
