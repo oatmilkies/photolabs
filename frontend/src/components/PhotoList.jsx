@@ -5,10 +5,10 @@ import PhotoListItem from "./PhotoListItem";
 
 //Display a grid of photos
 const PhotoList = (props) => {
-  const { likedPhotos, toggleLike } = props;
+  const { photos, likedPhotos, toggleFav, displayModal, toggleModal, selectedPhoto, selectPhoto} = props;
 
-  const listItem = props.photos.map((item) => 
-  <PhotoListItem key={item.id} listItem={item} liked={likedPhotos.includes(item.id)} toggleLike={() => toggleLike(item.id)} displayModal={props.displayModal} toggleModal={props.toggleModal} selectedPhoto={props.selectedPhoto} selectPhoto={props.selectPhoto} />)
+  const listItem = photos.map((item) => 
+  <PhotoListItem key={item.id} listItem={item} liked={likedPhotos.includes(item.id)} toggleFav={() => toggleFav(item.id)} displayModal={displayModal} toggleModal={toggleModal} selectedPhoto={selectedPhoto} selectPhoto={selectPhoto} />)
 
   return (
     <ul className="photo-list">

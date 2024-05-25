@@ -5,11 +5,13 @@ import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
+  const { topics, photos, likedPhotos, toggleFav, displayModal, toggleModal, selectedPhoto, selectPhoto} = props;
+
   return (
     <div className="home-route">
-      <TopNavigation topics={props.topics} likedPhotos={props.likedPhotos} />
+      <TopNavigation topics={topics} likedPhotos={likedPhotos} />
 
-      <PhotoList photos={props.photos} likedPhotos={props.likedPhotos} toggleLike={props.toggleLike} displayModal={props.displayModal} toggleModal={props.toggleModal} selectedPhoto={props.selectedPhoto} selectPhoto={props.selectPhoto} />
+      <PhotoList photos={photos} likedPhotos={likedPhotos} toggleFav={toggleFav} displayModal={displayModal} toggleModal={toggleModal} selectedPhoto={selectedPhoto} selectPhoto={selectPhoto} />
     </div>
   );
 };

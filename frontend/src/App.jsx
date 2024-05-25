@@ -10,20 +10,20 @@ import useApplicationData from 'hooks/useApplicationData';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const {
-    displayModal,
+    state,
     toggleModal,
-    selectedPhoto,
-    likedPhotos,
-    toggleLike,
-    selectPhoto
+    selectPhoto,
+    toggleFav
    } = useApplicationData(photos);
+
+   //Add some logic for adding fav & removing fav
 
   return (
     <div className="App">
-      <HomeRoute topics={topics} photos={photos} displayModal={displayModal}  toggleModal={toggleModal} selectedPhoto={selectedPhoto} toggleLike={toggleLike} likedPhotos={likedPhotos} selectPhoto={selectPhoto} />
+      <HomeRoute topics={topics} photos={photos} displayModal={state.displayModal}  toggleModal={toggleModal} selectedPhoto={state.selectedPhoto} toggleFav={toggleFav} likedPhotos={state.likedPhotos} selectPhoto={selectPhoto} />
 
-      {displayModal && 
-      <PhotoDetailsModal displayModal={displayModal} toggleModal={toggleModal} selectedPhoto={selectedPhoto} toggleLike={toggleLike} likedPhotos={likedPhotos} selectPhoto={selectPhoto} />}
+      {state.displayModal && 
+      <PhotoDetailsModal displayModal={state.displayModal} toggleModal={toggleModal} selectedPhoto={state.selectedPhoto} toggleFav={toggleFav} likedPhotos={state.likedPhotos} selectPhoto={selectPhoto} />}
     </div>
 
   );
