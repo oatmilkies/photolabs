@@ -1,36 +1,6 @@
 import { useReducer } from "react";
 
-
 const useApplicationData = (photos) => {
-  // const [displayModal, setDisplayModal] = useState(false);
-  // const [selectedPhoto, setSelectedPhoto] = useState({});
-  // const [likedPhotos, setLikedPhotos] = useState([]);
-
-  // //Open or close the modal
-  // const toggleModal = () => {
-  //   setDisplayModal(prevState => !prevState);
-  // };
-
-  // //Get data for the selected photo to pass to modal
-  // const selectPhoto = (id) => {
-  //   let updatedSelectedPhoto = {};
-
-  //   const photo = photos.find(({ id }) => id === id);
-  //   updatedSelectedPhoto = { photo };
-  //   setSelectedPhoto(updatedSelectedPhoto);
-  // };
-
-  // //Check if photo is in liked list. Remove if it is, add if it's not
-  // const toggleLike = function(id) {
-  //   if (likedPhotos.includes(id)) {
-  //     const updatedLikedPhotos = likedPhotos.filter(id => id !== id);
-  //     setLikedPhotos(updatedLikedPhotos);
-  //   } else {
-  //     const updatedLikedPhotos = [...likedPhotos, id];
-  //     setLikedPhotos(updatedLikedPhotos);
-  //   }
-  // };
-
   function reducer(state, action) {
     switch (action.type) {
       case 'TOGGLE_MODAL':
@@ -66,14 +36,17 @@ const useApplicationData = (photos) => {
     likedPhotos: []
   });
 
+  //Open modal when a photo is clicked
   const toggleModal = () => {
     dispatch({ type: 'TOGGLE_MODAL' });
   };
 
+  //Get data for the selected photo to pass to the modal
   const selectPhoto = (id) => {
     dispatch({ type: 'SELECT_PHOTO', payload: { id } });
   };
 
+  //Add or remove a favourite when the fav button is clicked
   const toggleFav = (id) => {
     if (state.likedPhotos.includes(id)) {
       dispatch({ type: 'FAV_PHOTO_REMOVED', payload: { id } });

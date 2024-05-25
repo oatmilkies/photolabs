@@ -16,8 +16,6 @@ const App = () => {
     toggleFav
    } = useApplicationData(photos);
 
-   //Add some logic for adding fav & removing fav
-
   return (
     <div className="App">
       <HomeRoute topics={topics} photos={photos} displayModal={state.displayModal}  toggleModal={toggleModal} selectedPhoto={state.selectedPhoto} toggleFav={toggleFav} likedPhotos={state.likedPhotos} selectPhoto={selectPhoto} />
