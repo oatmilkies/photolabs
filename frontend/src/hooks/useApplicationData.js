@@ -1,6 +1,6 @@
 import { useReducer, useEffect } from "react";
 
-const useApplicationData = (photos) => {
+const useApplicationData = () => {
   function reducer(state, action) {
     switch (action.type) {
       case 'SET_PHOTO_DATA':
@@ -8,7 +8,9 @@ const useApplicationData = (photos) => {
       case 'SET_TOPIC_DATA':
         return { ...state, topicData: action.payload };
       case 'GET_PHOTOS_BY_TOPICS':
-        return { ...state, topicData: action.payload };
+        return { ...state, photosByTopic: action.payload };
+      case 'SET_TOPIC_ID': 
+        return { ...state, currentTopicId: action.payload };
       case 'TOGGLE_MODAL':
         return {
           ...state,
@@ -42,7 +44,9 @@ const useApplicationData = (photos) => {
     selectedPhoto: {},
     likedPhotos: [],
     photoData: [],
-    topicData: []
+    topicData: [],
+    photosByTopic: [],
+    currentTopicId: null
   });
 
 
@@ -60,12 +64,19 @@ const useApplicationData = (photos) => {
       .then((data) => dispatch({ type: 'SET_TOPIC_DATA', payload: data }));
   }, []);
 
-  //Get topic id
+  //Get photos by topic id
   useEffect(() => {
-    fetch('topics/photos/:topic_id')
-      .then((response) => response.json())
-      .then((data) => dispatch({ type: 'GET_PHOTOS_BY_TOPICS', payload: data }));
-  }, []);
+    console.log(state.currentTopicId)
+    if (state.currentTopicId) {
+      fetch(`/api/topics/photos/${state.currentTopicId}`)
+        .then((response) => response.json())
+        .then((data) => dispatch({ type: 'GET_PHOTOS_BY_TOPICS', payload: data }));
+    }
+  }, [state.currentTopicId]);
+
+  const handleTopicClick = (topicId) => {
+    dispatch({ type: 'SET_TOPIC_ID', payload: topicId });
+  };
 
   //Open modal when a photo is clicked
   const toggleModal = () => {
@@ -90,7 +101,8 @@ const useApplicationData = (photos) => {
     state,
     toggleModal,
     selectPhoto,
-    toggleFav
+    toggleFav,
+    handleTopicClick
   };
 };
 

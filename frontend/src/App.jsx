@@ -13,12 +13,13 @@ const App = () => {
     state,
     toggleModal,
     selectPhoto,
-    toggleFav
+    toggleFav,
+    handleTopicClick
    } = useApplicationData();
 
   return (
     <div className="App">
-      <HomeRoute topics={state.topicData} photos={state.photoData} displayModal={state.displayModal}  toggleModal={toggleModal} selectedPhoto={state.selectedPhoto} toggleFav={toggleFav} likedPhotos={state.likedPhotos} selectPhoto={selectPhoto} />
+      <HomeRoute topics={state.topicData} photos={state.photoData} photosByTopic={state.photosByTopic} handleTopicClick={handleTopicClick} displayModal={state.displayModal}  toggleModal={toggleModal} selectedPhoto={state.selectedPhoto} toggleFav={toggleFav} likedPhotos={state.likedPhotos} selectPhoto={selectPhoto} />
 
       {state.displayModal && 
       <PhotoDetailsModal displayModal={state.displayModal} toggleModal={toggleModal} selectedPhoto={state.selectedPhoto} toggleFav={toggleFav} likedPhotos={state.likedPhotos} selectPhoto={selectPhoto} />}
