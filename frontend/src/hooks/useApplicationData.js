@@ -6,7 +6,7 @@ const useApplicationData = (photos) => {
       case 'SET_PHOTO_DATA':
         return { ...state, photoData: action.payload };
       case 'SET_TOPIC_DATA':
-        return { ...state, photoData: action.payload };
+        return { ...state, topicData: action.payload };
       case 'TOGGLE_MODAL':
         return {
           ...state,
@@ -15,7 +15,7 @@ const useApplicationData = (photos) => {
       case 'SELECT_PHOTO':
         return {
           ...state,
-          selectedPhoto: photos.find(({ id }) => id === action.payload.id)
+          selectedPhoto: photoData.find(({ id }) => id === action.payload.id)
         };
       case 'FAV_PHOTO_ADDED':
         return {

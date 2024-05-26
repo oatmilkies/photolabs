@@ -14,7 +14,7 @@ const App = () => {
     toggleModal,
     selectPhoto,
     toggleFav
-   } = useApplicationData(photos);
+   } = useApplicationData();
 
   return (
     <div className="App">
