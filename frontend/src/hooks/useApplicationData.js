@@ -1,8 +1,10 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 
 const useApplicationData = (photos) => {
   function reducer(state, action) {
     switch (action.type) {
+      case 'SET_PHOTO_DATA':
+        return { ...state, photoData: action.payload };
       case 'TOGGLE_MODAL':
         return {
           ...state,
@@ -33,8 +35,16 @@ const useApplicationData = (photos) => {
   const [state, dispatch] = useReducer(reducer, {
     displayModal: false,
     selectedPhoto: {},
-    likedPhotos: []
+    likedPhotos: [],
+    photoData: [],
+    topicData: []
   });
+
+  useEffect(() => {
+    fetch("/api/photos")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: 'ACTIONS.SET_PHOTO_DATA', payload: data }))
+  }, []);
 
   //Open modal when a photo is clicked
   const toggleModal = () => {

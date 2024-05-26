@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
-import topics from 'mocks/topics';
-import photos from 'mocks/photos';
+// import topics from 'mocks/topics';
+// import photos from 'mocks/photos';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 
