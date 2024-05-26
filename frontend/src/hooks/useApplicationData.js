@@ -8,7 +8,7 @@ const useApplicationData = () => {
       case 'SET_TOPIC_DATA':
         return { ...state, topicData: action.payload };
       case 'GET_PHOTOS_BY_TOPICS':
-        return { ...state, photosByTopic: action.payload };
+        return { ...state, photoData: action.payload };
       case 'SET_TOPIC_ID': 
         return { ...state, currentTopicId: action.payload };
       case 'TOGGLE_MODAL':
@@ -45,7 +45,6 @@ const useApplicationData = () => {
     likedPhotos: [],
     photoData: [],
     topicData: [],
-    photosByTopic: [],
     currentTopicId: null
   });
 
@@ -66,7 +65,6 @@ const useApplicationData = () => {
 
   //Get photos by topic id
   useEffect(() => {
-    console.log(state.currentTopicId)
     if (state.currentTopicId) {
       fetch(`/api/topics/photos/${state.currentTopicId}`)
         .then((response) => response.json())
@@ -74,6 +72,7 @@ const useApplicationData = () => {
     }
   }, [state.currentTopicId]);
 
+  //Get topic id when clicked
   const handleTopicClick = (topicId) => {
     dispatch({ type: 'SET_TOPIC_ID', payload: topicId });
   };
