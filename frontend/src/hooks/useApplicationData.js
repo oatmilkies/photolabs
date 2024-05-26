@@ -5,6 +5,8 @@ const useApplicationData = (photos) => {
     switch (action.type) {
       case 'SET_PHOTO_DATA':
         return { ...state, photoData: action.payload };
+      case 'SET_TOPIC_DATA':
+        return { ...state, photoData: action.payload };
       case 'TOGGLE_MODAL':
         return {
           ...state,
@@ -32,6 +34,7 @@ const useApplicationData = (photos) => {
     }
   }
 
+  
   const [state, dispatch] = useReducer(reducer, {
     displayModal: false,
     selectedPhoto: {},
@@ -40,10 +43,19 @@ const useApplicationData = (photos) => {
     topicData: []
   });
 
+
+  //Get photo data from api server
   useEffect(() => {
     fetch("/api/photos")
       .then((response) => response.json())
-      .then((data) => dispatch({ type: 'ACTIONS.SET_PHOTO_DATA', payload: data }))
+      .then((data) => dispatch({ type: 'SET_PHOTO_DATA', payload: data }));
+  }, []);
+
+  //Get topic data from api server
+  useEffect(() => {
+    fetch("/api/topics")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: 'SET_TOPIC_DATA', payload: data }));
   }, []);
 
   //Open modal when a photo is clicked
