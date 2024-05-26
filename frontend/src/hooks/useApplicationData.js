@@ -15,7 +15,7 @@ const useApplicationData = (photos) => {
       case 'SELECT_PHOTO':
         return {
           ...state,
-          selectedPhoto: photoData.find(({ id }) => id === action.payload.id)
+          selectedPhoto: state.photoData.find(({ id }) => id === action.payload.id)
         };
       case 'FAV_PHOTO_ADDED':
         return {
@@ -46,14 +46,14 @@ const useApplicationData = (photos) => {
 
   //Get photo data from api server
   useEffect(() => {
-    fetch("/api/photos")
+    fetch('/api/photos')
       .then((response) => response.json())
       .then((data) => dispatch({ type: 'SET_PHOTO_DATA', payload: data }));
   }, []);
 
   //Get topic data from api server
   useEffect(() => {
-    fetch("/api/topics")
+    fetch('/api/topics')
       .then((response) => response.json())
       .then((data) => dispatch({ type: 'SET_TOPIC_DATA', payload: data }));
   }, []);
