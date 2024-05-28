@@ -3,6 +3,8 @@ The PhotoLabs project for the Web Development React course programming.
 
 # Photolabs
 
+![photolabsc](https://github.com/oatmilkies/photolabs/assets/148240283/88ab4368-5c63-400a-93a4-6fff7d029169)
+
 ## Setup
 
 To set up the project locally, clone the repository and install dependencies with `npm install` in each respective `/frontend` and `/backend`.
