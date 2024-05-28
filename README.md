@@ -1,7 +1,6 @@
-# react-photolabs
-The PhotoLabs project for the Web Development React course programming.
-
 # Photolabs
+
+Photolabs is a single-page application built to aid in learning React. This app allows users to browse a collection of photos and keep track of their favourites.
 
 ![photolabsc](https://github.com/oatmilkies/photolabs/assets/148240283/88ab4368-5c63-400a-93a4-6fff7d029169)
 
